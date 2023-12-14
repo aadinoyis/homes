@@ -1,79 +1,73 @@
+/* FONTS FAMILY
+-Montserrat
+-Poppins
+-Inter
+-Geist
+-Lato
+-Manrope
+-Nunito Sans
+-Roboto
+-Work Sans
+-Open Sans
+
+LINE HEIGHT
+-paragraph 1.5
+
+
+
+FONT WEIGHT
+-heading 600
+-paragraph 300
+
+FONT SIZE
+-7rem [extra large]
+-2rem average
+-1rem [paragraph]
+-.875rem [tiny text]
+
+COLOR
+
+CLAMP
+-padding [4rem, 12vw, 20rem]
+-padding [2rem, 8vw, 7rem]
+-heading extra [2rem, 5vw, 8rem]
+-heading normal [2rem, 5vw, 4rem]
+
+BACKGROUND COLOR
+--white #ffffff, #f5fadb
+--black #343434,
+
+BUTTON
+-padding .5em .8em
+-font-weight bold
+border-radius .3em */
+
+
 :root {
   --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --border-radius-large: .75em;
+  --border-radius-medium: .3em;
+  --font-main: 'Montserrat', 'Arial', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;;
+  
+  --heading-big: clamp(1.5rem, 10vw, 3rem);
+  --heading-medium: clamp(2rem, 5vw, 8rem);
+  --heading-small: clamp(1.4rem, 5vw, 2.5rem);
+  --paragraph: 1rem;
 
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --padding-large: clamp(4rem, 12vw, 20rem);
+  --padding-medium: clamp(2rem, 8vw, 7rem);
 
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
+  
+  --color-pri: rgb(33, 46, 223);
+  --color-sec: rgb(86, 134, 230);
+  --color-alt: rgb(255, 95, 55);
 
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
-
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
+  --color-grey-1: rgb(214, 214, 214);
+  --color-grey-2: rgb(185, 185, 185);
+  --color-grey-3: grey;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
-
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
-}
-
-* {
+*, ::before, ::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -86,13 +80,15 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: #000;
+  background: #fff;
+  font-family: var(var(--font-main));
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
 }
 
 a {
@@ -100,8 +96,42 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+ul {
+  list-style: none;
+}
+
+button {
+  all: unset;
+}
+
+.btn {
+  padding: .5em .8em;
+  border-radius: .3em;
+  font-weight: 700;
+  display: inline-block;
+  background: #ffffff;
+  color: #000000;
+  word-break: keep-all;
+  text-wrap: nowrap;
+}
+
+.btn_inv {
+  padding: .5em .8em;
+  border-radius: .3em;
+  font-weight: 700;
+  display: inline-block;
+  background: #000000;
+  color: #ffffff;
+  word-break: keep-all;
+  text-wrap: nowrap;
+}
+
+
+.logo {
+  height: 48px;
+  width: auto;
+}
+
+@media screen and (max-width: 700px) {
+  /* styling for mobile screen */
 }
